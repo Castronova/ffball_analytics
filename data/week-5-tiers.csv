@@ -1,0 +1,191 @@
+name,tier,pos
+Russell Wilson,1,QB
+Patrick Mahomes II,1,QB
+Lamar Jackson,1,QB
+Dak Prescott,1,QB
+Josh Allen,2,QB
+Kyler Murray,2,QB
+Deshaun Watson,2,QB
+Matt Ryan,3,QB
+Gardner Minshew II,3,QB
+Teddy Bridgewater,3,QB
+Drew Brees,3,QB
+Kirk Cousins,4,QB
+Ben Roethlisberger,4,QB
+Jared Goff,4,QB
+Daniel Jones,5,QB
+Joe Burrow,5,QB
+Tom Brady,5,QB
+Justin Herbert,5,QB
+Ryan Fitzpatrick,6,QB
+Carson Wentz,6,QB
+Ryan Tannehill,6,QB
+Baker Mayfield,7,QB
+Philip Rivers,7,QB
+Derek Carr,7,QB
+Jimmy Garoppolo,7,QB
+Nick Foles,7,QB
+Ezekiel Elliott,1,RB
+Alvin Kamara,1,RB
+Dalvin Cook,1,RB
+Clyde Edwards-Helaire,1,RB
+Josh Jacobs,1,RB
+Chris Carson,2,RB
+James Robinson,2,RB
+Jonathan Taylor,2,RB
+Derrick Henry,2,RB
+Kareem Hunt,2,RB
+Joe Mixon,2,RB
+Mike Davis,3,RB
+James Conner,3,RB
+David Johnson,3,RB
+Miles Sanders,3,RB
+Todd Gurley II,4,RB
+Devin Singletary,5,RB
+Melvin Gordon III,5,RB
+Kenyan Drake,5,RB
+Ronald Jones II,5,RB
+Jerick McKinnon,5,RB
+David Montgomery,6,RB
+Antonio Gibson,6,RB
+Joshua Kelley,6,RB
+Mark Ingram II,6,RB
+Darrell Henderson,7,RB
+Myles Gaskin,7,RB
+Malcolm Brown,7,RB
+Damien Harris,7,RB
+Devonta Freeman,7,RB
+Latavius Murray,7,RB
+J.K. Dobbins,8,RB
+Chase Edmonds,8,RB
+Rex Burkhead,8,RB
+Alexander Mattison,9,RB
+James White,9,RB
+Gus Edwards,9,RB
+Justin Jackson,9,RB
+Jeff Wilson Jr.,9,RB
+Nyheim Hines,9,RB
+DeAndre Hopkins,1,WR
+Tyreek Hill,1,WR
+Adam Thielen,1,WR
+D.K. Metcalf,2,WR
+Tyler Lockett,2,WR
+Amari Cooper,2,WR
+Stefon Diggs,2,WR
+Calvin Ridley,2,WR
+Mike Evans,3,WR
+Allen Robinson II,3,WR
+Terry McLaurin,3,WR
+Cooper Kupp,3,WR
+D.J. Chark Jr.,3,WR
+Keenan Allen,3,WR
+Robby Anderson,4,WR
+Robert Woods,4,WR
+Will Fuller V,4,WR
+D.J. Moore,4,WR
+Odell Beckham Jr.,4,WR
+Marquise Brown,5,WR
+DeVante Parker,5,WR
+CeeDee Lamb,6,WR
+Justin Jefferson,6,WR
+JuJu Smith-Schuster,6,WR
+Darius Slayton,6,WR
+Michael Gallup,6,WR
+Tyler Boyd,6,WR
+Diontae Johnson,7,WR
+Julian Edelman,7,WR
+T.Y. Hilton,7,WR
+John Brown,7,WR
+Jerry Jeudy,8,WR
+Jarvis Landry,8,WR
+Jamison Crowder,8,WR
+Laviska Shenault Jr.,8,WR
+A.J. Brown,8,WR
+Brandon Aiyuk,9,WR
+Golden Tate,9,WR
+Tee Higgins,9,WR
+Scotty Miller,9,WR
+Sammy Watkins,9,WR
+Brandin Cooks,9,WR
+Michael Thomas,9,WR
+Deebo Samuel,10,WR
+Russell Gage,10,WR
+Tre'Quan Smith,10,WR
+Emmanuel Sanders,10,WR
+A.J. Green,10,WR
+Hunter Renfrow,11,WR
+Mecole Hardman,11,WR
+Curtis Samuel,11,WR
+N'Keal Harry,11,WR
+Zach Pascal,12,WR
+Preston Williams,12,WR
+Cole Beasley,12,WR
+Randall Cobb,12,WR
+Keelan Cole,12,WR
+Greg Ward,12,WR
+Christian Kirk,12,WR
+Tim Patrick,12,WR
+George Kittle,1,TE
+Travis Kelce,1,TE
+Mark Andrews,1,TE
+Darren Waller,2,TE
+Hunter Henry,2,TE
+Zach Ertz,2,TE
+Dalton Schultz,3,TE
+Tyler Higbee,3,TE
+Evan Engram,3,TE
+Hayden Hurst,4,TE
+Mike Gesicki,4,TE
+Jonnu Smith,4,TE
+Rob Gronkowski,4,TE
+Eric Ebron,5,TE
+Austin Hooper,5,TE
+Jimmy Graham,5,TE
+Greg Olsen,5,TE
+Logan Thomas,6,TE
+Mo Alie-Cox,7,TE
+Drew Sample,7,TE
+Chris Herndon IV,7,TE
+Jordan Akins,7,TE
+Tyler Eifert,8,TE
+Ian Thomas,8,TE
+Justin Tucker,1,K
+Harrison Butker,1,K
+Wil Lutz,1,K
+Greg Zuerlein,1,K
+Jason Myers,2,K
+Robbie Gould,2,K
+Zane Gonzalez,2,K
+Rodrigo Blankenship,3,K
+Ka'imi Fairbairn,3,K
+Joey Slye,3,K
+Sam Sloman,3,K
+Chris Boswell,4,K
+Tyler Bass,4,K
+Stephen Gostkowski,4,K
+Ryan Succop,4,K
+Nick Folk,4,K
+Michael Badgley,4,K
+Dan Bailey,4,K
+Daniel Carlson,5,K
+Jake Elliott,5,K
+Los Angeles Rams,1,DST
+Baltimore Ravens,1,DST
+Tampa Bay Buccaneers,1,DST
+San Francisco 49ers,1,DST
+New England Patriots,1,DST
+Pittsburgh Steelers,1,DST
+Arizona Cardinals,2,DST
+Indianapolis Colts,3,DST
+Kansas City Chiefs,3,DST
+Buffalo Bills,3,DST
+New Orleans Saints,3,DST
+Chicago Bears,4,DST
+Seattle Seahawks,5,DST
+Denver Broncos,5,DST
+Cleveland Browns,5,DST
+Dallas Cowboys,5,DST
+Philadelphia Eagles,6,DST
+Houston Texans,6,DST
+Tennessee Titans,6,DST
+Washington Football Team,6,DST
