@@ -1,0 +1,191 @@
+,name,tier,pos
+0,Lamar Jackson,1,QB
+1,Patrick Mahomes II,1,QB
+2,Dak Prescott,1,QB
+3,Josh Allen,2,QB
+4,Russell Wilson,2,QB
+5,Kyler Murray,2,QB
+6,Matt Ryan,3,QB
+7,Aaron Rodgers,3,QB
+8,Deshaun Watson,3,QB
+9,Tom Brady,4,QB
+10,Drew Brees,4,QB
+11,Cam Newton,4,QB
+12,Ben Roethlisberger,4,QB
+13,Matthew Stafford,5,QB
+14,Carson Wentz,5,QB
+15,Jared Goff,5,QB
+16,Ryan Tannehill,6,QB
+17,Jimmy Garoppolo,6,QB
+18,Gardner Minshew II,6,QB
+19,Philip Rivers,7,QB
+20,Joe Burrow,7,QB
+21,Kirk Cousins,7,QB
+22,Tyrod Taylor,7,QB
+23,Mitchell Trubisky,8,QB
+24,Teddy Bridgewater,8,QB
+25,Derek Carr,8,QB
+26,Derrick Henry,1,RB
+27,Ezekiel Elliott,1,RB
+28,Christian McCaffrey,1,RB
+29,Dalvin Cook,2,RB
+30,Alvin Kamara,2,RB
+31,Saquon Barkley,2,RB
+32,Josh Jacobs,2,RB
+33,Clyde Edwards-Helaire,2,RB
+34,Jonathan Taylor,3,RB
+35,Nick Chubb,3,RB
+36,Aaron Jones,3,RB
+37,Joe Mixon,3,RB
+38,Kenyan Drake,4,RB
+39,Chris Carson,4,RB
+40,Raheem Mostert,4,RB
+41,Austin Ekeler,4,RB
+42,Todd Gurley II,4,RB
+43,David Johnson,4,RB
+44,Mark Ingram II,5,RB
+45,Ronald Jones II,5,RB
+46,Melvin Gordon III,5,RB
+47,Kareem Hunt,5,RB
+48,David Montgomery,6,RB
+49,J.K. Dobbins,6,RB
+50,Devin Singletary,6,RB
+51,Zack Moss,6,RB
+52,Malcolm Brown,6,RB
+53,Miles Sanders,6,RB
+54,James Robinson,7,RB
+55,Sony Michel,8,RB
+56,Antonio Gibson,8,RB
+57,Benny Snell Jr.,8,RB
+58,Joshua Kelley,8,RB
+59,Nyheim Hines,8,RB
+60,Leonard Fournette,9,RB
+61,James White,9,RB
+62,Latavius Murray,9,RB
+63,Cam Akers,9,RB
+64,James Conner,9,RB
+65,Adrian Peterson,9,RB
+66,Davante Adams,1,WR
+67,Julio Jones,1,WR
+68,Tyreek Hill,1,WR
+69,DeAndre Hopkins,1,WR
+70,Adam Thielen,2,WR
+71,Allen Robinson II,2,WR
+72,Chris Godwin,2,WR
+73,A.J. Brown,2,WR
+74,Calvin Ridley,2,WR
+75,Amari Cooper,2,WR
+76,Robert Woods,3,WR
+77,JuJu Smith-Schuster,3,WR
+78,Mike Evans,3,WR
+79,D.J. Moore,3,WR
+80,Terry McLaurin,3,WR
+81,Tyler Lockett,4,WR
+82,D.J. Chark Jr.,4,WR
+83,Cooper Kupp,4,WR
+84,D.K. Metcalf,4,WR
+85,T.Y. Hilton,5,WR
+86,Marquise Brown,5,WR
+87,Michael Gallup,5,WR
+88,Odell Beckham Jr.,5,WR
+89,Stefon Diggs,5,WR
+90,Keenan Allen,6,WR
+91,Will Fuller V,6,WR
+92,A.J. Green,6,WR
+93,Marvin Jones Jr.,6,WR
+94,Emmanuel Sanders,7,WR
+95,Jarvis Landry,7,WR
+96,Julian Edelman,7,WR
+97,Tyler Boyd,7,WR
+98,Diontae Johnson,7,WR
+99,Darius Slayton,7,WR
+100,John Brown,7,WR
+101,CeeDee Lamb,7,WR
+102,Courtland Sutton,7,WR
+103,Jamison Crowder,8,WR
+104,Anthony Miller,8,WR
+105,Parris Campbell,8,WR
+106,DeSean Jackson,8,WR
+107,Kenny Golladay,8,WR
+108,Henry Ruggs III,9,WR
+109,Jerry Jeudy,9,WR
+110,Robby Anderson,10,WR
+111,Preston Williams,10,WR
+112,Sterling Shepard,10,WR
+113,Sammy Watkins,10,WR
+114,Mike Williams,10,WR
+115,Allen Lazard,10,WR
+116,DeVante Parker,10,WR
+117,Christian Kirk,11,WR
+118,Laviska Shenault Jr.,11,WR
+119,Curtis Samuel,11,WR
+120,Brandin Cooks,11,WR
+121,Mecole Hardman,11,WR
+122,Marquez Valdes-Scantling,12,WR
+123,Corey Davis,12,WR
+124,Larry Fitzgerald,12,WR
+125,N'Keal Harry,12,WR
+126,Travis Kelce,1,TE
+127,Mark Andrews,1,TE
+128,George Kittle,2,TE
+129,Zach Ertz,2,TE
+130,Darren Waller,2,TE
+131,Hunter Henry,3,TE
+132,Jared Cook,3,TE
+133,Tyler Higbee,3,TE
+134,Dallas Goedert,4,TE
+135,Hayden Hurst,4,TE
+136,Evan Engram,4,TE
+137,Jonnu Smith,5,TE
+138,T.J. Hockenson,5,TE
+139,Noah Fant,5,TE
+140,Mike Gesicki,6,TE
+141,Austin Hooper,6,TE
+142,Rob Gronkowski,6,TE
+143,Chris Herndon IV,7,TE
+144,Eric Ebron,7,TE
+145,Jack Doyle,7,TE
+146,O.J. Howard,7,TE
+147,Logan Thomas,7,TE
+148,Greg Olsen,7,TE
+149,Jimmy Graham,8,TE
+150,Harrison Butker,1,K
+151,Justin Tucker,1,K
+152,Wil Lutz,1,K
+153,Greg Zuerlein,1,K
+154,Robbie Gould,1,K
+155,Younghoe Koo,2,K
+156,Mason Crosby,2,K
+157,Matt Prater,2,K
+158,Jason Myers,2,K
+159,Chris Boswell,2,K
+160,Zane Gonzalez,2,K
+161,Dan Bailey,3,K
+162,Ryan Succop,3,K
+163,Jake Elliott,3,K
+164,Rodrigo Blankenship,3,K
+165,Joey Slye,3,K
+166,Tyler Bass,4,K
+167,Michael Badgley,4,K
+168,Sam Sloman,4,K
+169,Nick Folk,4,K
+170,Buffalo Bills,1,DST
+171,San Francisco 49ers,1,DST
+172,Pittsburgh Steelers,1,DST
+173,Baltimore Ravens,2,DST
+174,Kansas City Chiefs,2,DST
+175,Chicago Bears,2,DST
+176,Tennessee Titans,2,DST
+177,Los Angeles Rams,3,DST
+178,New Orleans Saints,3,DST
+179,Philadelphia Eagles,4,DST
+180,Tampa Bay Buccaneers,4,DST
+181,Indianapolis Colts,4,DST
+182,Seattle Seahawks,5,DST
+183,Arizona Cardinals,5,DST
+184,New England Patriots,5,DST
+185,Green Bay Packers,5,DST
+186,Dallas Cowboys,6,DST
+187,Washington Football Team,6,DST
+188,Minnesota Vikings,6,DST
+189,Denver Broncos,6,DST
