@@ -15,55 +15,23 @@ SLEEP_SECONDS = 2
 END_WEEK = 1
 
 
-def process_page_fa(html):
-    # parse the html into a dataframe
-    # matching any table that contains 'Pos'
-    df = pandas.read_html(html, "Fan Pts")[0]
 
-    # flatten and rename columns
-    df.columns = [
-        " ".join(col).strip()
-        if ("Unnamed" not in col[0]) and ("Fantasy" not in col[0])
-        else col[1]
-        for col in df.columns.values
-    ]
-    df.drop(
-        ["Action", "Forecast", "% Start"],
-        axis=1,
-        errors="ignore",
-        inplace=True,
-    )
-    df.rename(
-        columns={
-            "Offense": "Name",
-            "Kickers": "Name",
-            "Defense/Special Teams": "Name",
-            "Pos": "Lineup-Pos",
-        },
-        inplace=True,
-        errors="ignore",
-    )
+def get_webdriver():
 
-    # generate pos col from df.Name.split('-')[1].split[' '][0]
-    # create Pos column
-    f = lambda x: x.split("-")[1].strip().split(" ")[0].strip()
-    df["Pos"] = df.Name.apply(f)
+    # Create web driver
+    print("Creating WebDriver", flush=True)
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
 
-    # clean name column
-    f = lambda x: " ".join(x.split("-")[0].split(" ")[:-2])
-    df["Name"] = df.Name.apply(f)
-    expression = "\\b[pP]layer\\b|\\b[nN]otes?\\b|\\b[nN]o\\b|\\b[Nn]ew\\b"
-    df.Name = df.Name.str.replace(expression, "", regex=True)
-    df.Name = df.Name.str.strip()
+    driver = webdriver.Chrome("./chromedriver", chrome_options=chrome_options)
+    driver.set_page_load_timeout(30)
 
-    # drop rows where player name is None
-    df = df[df.Name != ""]
+    print("Logging in", flush=True)
+    login(driver)
 
-    # fix special chars in Fan Pts header
-    df = df.rename(columns=lambda x: re.sub("Fan Pts.*", "Fan Pts", x))
+    time.sleep(SLEEP_SECONDS)
 
-    return df
-
+    return driver
 
 def login(driver):
     driver.get("https://login.yahoo.com/")
@@ -118,6 +86,54 @@ def get_weekly_fa_stats(outfile, week, proj=False):
 
     driver.close()
 
+def process_page_fa(html):
+    # parse the html into a dataframe
+    # matching any table that contains 'Pos'
+    df = pandas.read_html(html, "Fan Pts")[0]
+
+    # flatten and rename columns
+    df.columns = [
+        " ".join(col).strip()
+        if ("Unnamed" not in col[0]) and ("Fantasy" not in col[0])
+        else col[1]
+        for col in df.columns.values
+    ]
+    df.drop(
+        ["Action", "Forecast", "% Start"],
+        axis=1,
+        errors="ignore",
+        inplace=True,
+    )
+    df.rename(
+        columns={
+            "Offense": "Name",
+            "Kickers": "Name",
+            "Defense/Special Teams": "Name",
+            "Pos": "Lineup-Pos",
+        },
+        inplace=True,
+        errors="ignore",
+    )
+
+    # generate pos col from df.Name.split('-')[1].split[' '][0]
+    # create Pos column
+    f = lambda x: x.split("-")[1].strip().split(" ")[0].strip()
+    df["Pos"] = df.Name.apply(f)
+
+    # clean name column
+    f = lambda x: " ".join(x.split("-")[0].split(" ")[:-2])
+    df["Name"] = df.Name.apply(f)
+    expression = "\\b[pP]layer\\b|\\b[nN]otes?\\b|\\b[nN]o\\b|\\b[Nn]ew\\b"
+    df.Name = df.Name.str.replace(expression, "", regex=True)
+    df.Name = df.Name.str.strip()
+
+    # drop rows where player name is None
+    df = df[df.Name != ""]
+
+    # fix special chars in Fan Pts header
+    df = df.rename(columns=lambda x: re.sub("Fan Pts.*", "Fan Pts", x))
+
+    return df
 
 def get_managers(driver):
 
@@ -146,25 +162,6 @@ def get_managers(driver):
         )
         print(f"{USER_ID}\t{TEAM_NAME}\t{TEAM_ID}\t{OWNER}")
     return managers
-
-
-def get_webdriver():
-
-    # Create web driver
-    print("Creating WebDriver", flush=True)
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-
-    driver = webdriver.Chrome("./chromedriver", chrome_options=chrome_options)
-    driver.set_page_load_timeout(30)
-
-    print("Logging in", flush=True)
-    login(driver)
-
-    time.sleep(SLEEP_SECONDS)
-
-    return driver
-
 
 def get_weekly_team_stats(outfile, week=1):
 
