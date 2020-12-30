@@ -46,10 +46,77 @@ def login(driver):
     password.send_keys(settings.YAHOO_PASSWORD)
     driver.find_element_by_id("login-signin").send_keys(Keys.RETURN)
 
+def get_team_roster(driver, team_id, owner, week=None):
 
-def get_weekly_fa_stats(outfile, week, proj=False):
+    print(f'Processing: {owner}, Week {week}', flush=True)
 
-    driver = get_webdriver()
+    # build the url
+    url = f'https://football.fantasysports.yahoo.com/f1/{settings.YAHOO_LEAGUEID}/{team_id}/team'
+    if week is not None:
+        url += f'?&week={week}'
+
+    # load the webpage
+    driver.get(url)
+    df_list = []
+
+    # get page source
+    html = driver.page_source
+
+    # parse the html into a dataframe
+    # matching any table that contains 'Pos'
+    dfs = pandas.read_html(html, 'Pos')
+    for df in dfs[0:3]:
+
+        # flatten and rename columns
+        df.columns = [' '.join(col).strip() if ('Unnamed' not in col[0]) \
+                      and ('Fantasy' not in col[0]) else col[1] \
+                      for col in df.columns.values]
+        df.drop(['Action', 'Forecast', '% Start'],
+                axis=1,
+                errors='ignore',
+                inplace=True)
+        df.rename(columns={'Offense':'Name',
+                           'Kickers':'Name',
+                           'Defense/Special Teams': 'Name',
+                           'Pos':'Lineup-Pos'},
+                           inplace=True, errors='ignore')
+        # drop any row where the Name col is (Empty). This occurs when a bench position is not filled.
+        #df = df.loc[~df.Name.str.contains('Empty')].copy()
+        if len(df[df.Name.str.contains('Empty')]) > 0:
+            df.drop(df[df.Name.str.contains('Empty')].index, inplace=True)
+
+        # generate pos col from df.Name.split('-')[1].split[' '][0]
+        # create Pos column
+        f = lambda x: x.split(' - ')[-1].strip().split(' ')[0].strip()
+        df['Pos'] = df.Name.apply(f)
+
+        # clean name column
+        f = lambda x: ' '.join(x.split(' - ')[0].split(' ')[:-1])
+        df["Name"] = df.Name.apply(f)
+        expression = '\\b[pP]layer\\b|\\b[nN]otes?\\b|\\b[nN]o\\b|\\b[Nn]ew\\b'
+        df.Name = df.Name.str.replace(expression, '', regex=True)
+        df.Name = df.Name.str.strip()
+
+        # add owner name and id to the dataframe
+        df['owner-id'] = team_id
+        df['owner'] = owner
+
+
+        # save to data list
+        df_list.append(df)
+
+    # join dataframes together
+    combined = pandas.concat(df_list, ignore_index=True, sort=False)
+    combined.replace({'^-$': 0.0}, regex=True, inplace=True)
+    combined.fillna(0, inplace=True)
+
+    driver.close()
+
+    return combined
+
+
+def get_weekly_fa_stats(outfile, driver, week, proj=False):
+
     dfs = []
     stat = f"S_PW_{week}" if proj else f"S_W_{week}"
     for pos in ["QB", "WR", "RB", "TE", "K", "DEF"]:
@@ -163,12 +230,8 @@ def get_managers(driver):
         print(f"{USER_ID}\t{TEAM_NAME}\t{TEAM_ID}\t{OWNER}")
     return managers
 
-def get_weekly_team_stats(outfile, week=1):
+def get_weekly_team_stats(outfile, driver, managers, week=1):
 
-    driver = get_webdriver()
-
-    # get list of managers
-    managers = get_managers(driver)
 
     # list to store weekly stats
     df_list = []
@@ -296,11 +359,10 @@ if __name__ == "__main__":
         "--output-dir", default="./data", help="directory to save output data"
     )
     p.add_argument(
-        "--proj",
+        "--fa-proj",
         action="store_true",
         default=False,
-        help="indicates the projected fa data should be downloaded. "
-        "Note this only applies to the --fa-stats option",
+        help="indicates the projected fa data should be downloaded. ",
     )
 
     args = p.parse_args()
@@ -320,15 +382,35 @@ if __name__ == "__main__":
         args.week_end + 1 if args.week_end is not None else start_week + 1
     )
 
+
     if args.team_stats:
+        # create webdriver
+        driver = get_webdriver()
+
+        # get list of managers
+        managers = get_managers(driver)
+
         for week in range(start_week, end_week):
             outfile = os.path.join(
                 args.output_dir, f"team-stats-week-{week}.csv"
             )
-            get_weekly_team_stats(outfile, week)
+            get_weekly_team_stats(outfile, driver, managers, week)
     if args.fa_stats:
+        # create webdriver
+        driver = get_webdriver()
+        
         for week in range(start_week, end_week):
             outfile = os.path.join(
                 args.output_dir, f"fa-stats-week-{week}.csv"
             )
-            get_weekly_fa_stats(outfile, week, args.proj)
+            get_weekly_fa_stats(outfile, driver, week)
+    if args.fa_proj:
+        # create webdriver
+        driver = get_webdriver()
+
+        for week in range(start_week, end_week):
+            outfile = os.path.join(
+                args.output_dir, f"fa-stats-week-{week}--proj.csv"
+            )
+            get_weekly_fa_stats(outfile, driver, week, True)
+
