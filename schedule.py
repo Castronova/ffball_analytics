@@ -12,7 +12,6 @@ def build_team_season_df(data_files):
 
     dfs = []
 
-    import pdb; pdb.set_trace()
     for f in data_files:
         df = pandas.read_csv(f)
 
@@ -32,15 +31,10 @@ def build_team_season_df(data_files):
         df = df.reset_index()
         df = df.pivot(index='week', columns='owner', values='Fan Pts')
 
-#        df = df.T
-#
-#        df.rename(columns={'index': 'week'}, inplace=True)
-
         # store in list
         dfs.append(df)
 
     # combine dict list into new dataframe
-    import pdb; pdb.set_trace()
     df = pandas.concat(dfs)
 
     return df
@@ -55,7 +49,10 @@ if __name__ == '__main__':
     p1 = s.add_parser('format-data',
                       help='formats and builds dataframes for schedule analytics')
     p1.add_argument('-d', '--team-data-files', required=True, nargs='+',
-                    help='space separated list of files that contain team statistic files, e.g. data/team-stats*')
+                    help='space separated list of files that contain team' 
+                         'statistic files, e.g. data/team-stats*')
+    p1.add_argument('-o', '--outfile', default='weekly-team-totals.csv',
+                    help='location to save output file')
 
     args = p.parse_args()
 
@@ -64,7 +61,12 @@ if __name__ == '__main__':
 
     # format data operation
     if args.parser_name == 'format-data':
+
         # build team data df for all matching paths in --team-data-location
         df = build_team_season_df(args.team_data_files)
+
+        df.to_csv(args.outfile)
+
+
         
 
